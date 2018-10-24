@@ -45,7 +45,7 @@ The machine controller should be able to act on a subset of machines that form a
 *   [Cluster type](https://github.com/kubernetes-sigs/cluster-api/blob/master/pkg/apis/cluster/v1alpha1/cluster_types.go#L40)
 *   [Machine type](https://github.com/kubernetes-sigs/cluster-api/blob/master/pkg/apis/cluster/v1alpha1/machine_types.go#L42)
 
-### Boostrapping
+### Bootstrapping
 
 To minimize code duplication and maximize flexibility, bootstrap clusters with an external Cluster Management API Stack. A Cluster Management API Stack contains all the components needed to provide Kubernetes Cluster Management API for a cluster. [Bootstrap Process Design Details](https://docs.google.com/document/d/1CnzIXtitfbO6Y7ZxVWROGO8jr19t0vooDx-YQ7c2nbI/edit?usp=sharing).
 
