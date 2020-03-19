@@ -119,8 +119,16 @@ func (m *Machine) Create(ctx context.Context, role string, version *string, moun
 				clusterLabel(m.cluster),
 				"127.0.0.1",
 				0,
-				kindMounts(mounts),
-				nil,
+                []v1alpha4.Mount{
+                    {
+                    ContainerPath: "/var/run/docker.sock", 
+                    HostPath: "/var/run/docker.sock",
+                    },{
+                    ContainerPath: "/var/lib/docker",
+                    HostPath: "/var/lib/docker",
+                    },  
+                },
+                nil,
 			)
 			if err != nil {
 				return errors.WithStack(err)
@@ -131,7 +139,15 @@ func (m *Machine) Create(ctx context.Context, role string, version *string, moun
 				m.ContainerName(),
 				machineImage,
 				clusterLabel(m.cluster),
-				kindMounts(mounts),
+                []v1alpha4.Mount{
+                    {
+                    ContainerPath: "/var/run/docker.sock", 
+                    HostPath: "/var/run/docker.sock",
+                    },{
+                    ContainerPath: "/var/lib/docker",
+                    HostPath: "/var/lib/docker",
+                    },  
+		        },
 				nil,
 			)
 			if err != nil {
