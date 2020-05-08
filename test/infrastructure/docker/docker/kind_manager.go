@@ -118,6 +118,7 @@ func createNode(name, image, clusterLabel, role string, mounts []v1alpha4.Mount,
 		// some k8s things want to read /lib/modules
 		"--volume", "/lib/modules:/lib/modules:ro",
 		"--hostname", name, // make hostname match container name
+        "--network", "kind", // add all nodes to the kind network because kind uses it's own docker network as of v0.8.1
 		"--name", name, // ... and set the container name
 		// label the node with the cluster ID
 		"--label", clusterLabel,
